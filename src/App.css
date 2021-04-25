@@ -1,38 +1,155 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+}
+
+body,
+input,
+button {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.app__title {
+  background: white;
+  font-size: 2.1rem;
+  text-align: center;
+  border-right: none;
+  border-left: none;
+  border-bottom: 3px solid black;
+  margin: 1rem auto;
+}
+
+.videoPlayer {
+  display: grid;
+}
+
+.videoPlayer__container {
+  display: flex;
+  gap: 1rem;
+  width: 65vw;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  margin: 0.5rem auto;
+}
+
+.videoPlayer__me,
+.videoPlayer__they {
+  display: grid;
+  -webkit-box-shadow: 5px 4px 7px -2px #474747;
+  box-shadow: 5px 4px 7px -2px #474747;
+  border: 2px solid rgb(5, 5, 85);
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  width: 48%;
+  background: white;
+}
+
+.videoPlayer__me h4 {
+  color: rgba(5, 5, 105, 0.664);
+  padding: 0.2rem;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  padding: 0.6rem;
+}
+
+.options__container {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  margin: 0.5rem auto;
+}
+
+.options__container form {
+  display: flex;
+  gap: 1rem;
+}
+
+.options__containerInput {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+}
+
+.options__container input::placeholder {
+  color: black;
+  font-weight: 500;
+}
+
+.options__container button {
+  width: 180px !important;
+  height: 30px !important;
+  margin: 0.3rem auto !important;
+  font-family: "Cormorant Garamond", serif !important;
+}
+
+.options__container input {
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: lightgrey;
+  margin: 0.4rem auto;
+}
+
+.notifications {
+  display: grid;
+  margin-top: 0.8rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.notifications h3 span {
+  text-transform: capitalize;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.videoPlayer__fullscreen {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0.6rem auto;
+  font-size: 1rem;
+  padding: 0.2rem 0.8rem;
+  cursor: pointer;
+  outline-offset: -4px;
+  outline: 1px solid grey;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 800px) {
+  .videoPlayer__container {
+    width: 100%;
+    display: grid;
   }
-  to {
-    transform: rotate(360deg);
+  .options__container form {
+    display: grid;
+  }
+  .options__container {
+    margin: 2.5rem auto;
+  }
+  .videoPlayer__me,
+  .videoPlayer__they {
+    padding: 0.5rem;
+    width: 60%;
+  }
+  .videoPlayer__fullscreen {
+    display: none;
+  }
+}
+
+@media all and (display-mode: fullscreen) {
+  .videoPlayer__container {
+    width: 100%;
+    margin-top: 10rem;
+  }
+
+  .videoPlayer__fullscreen {
+    display: none;
   }
 }
